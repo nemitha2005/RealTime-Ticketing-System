@@ -1,6 +1,8 @@
-package com.nemitha.systembackend.config;
+package com.nemitha.systembackend.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.nemitha.systembackend.config.TicketingConfig;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.File;
@@ -43,8 +45,8 @@ public class ConfigurationController {
 
     // Endpoint to update the configuration and save it to the file
     @PostMapping
-    public String updateConfig(@RequestBody TicketingConfig config) {
-        currentConfig = config;
+    public String updateConfig(@Valid @RequestBody TicketingConfig config) {
+        currentConfig = config; // Update configuration if valid only
         try {
             objectMapper.writeValue(new File(CONFIG_FILE), currentConfig);
             return "Configuration updated successfully";
