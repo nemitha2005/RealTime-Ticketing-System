@@ -60,6 +60,7 @@ public class ConfigurationController {
         }
     }
 
+    // Endpoint to start the ticketing system
     @PostMapping("/start")
     public ResponseEntity<String> startSystem() {
         if (currentConfig == null) {
@@ -68,5 +69,12 @@ public class ConfigurationController {
         }
         ticketingService.startSystem(currentConfig);
         return ResponseEntity.ok("System started successfully");
+    }
+
+    // Endpoint to stop the ticketing system
+    @PostMapping("/stop")
+    public ResponseEntity<String> stopSystem() {
+        ticketingService.stopSystem();
+        return ResponseEntity.ok("System stopped successfully");
     }
 }
