@@ -2,7 +2,9 @@ package com.nemitha.systembackend.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.nemitha.systembackend.config.TicketingConfig;
+import com.nemitha.systembackend.service.TicketingService;
 import jakarta.validation.Valid;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.File;
@@ -21,9 +23,12 @@ public class ConfigurationController {
     // Stores the current configuration
     private TicketingConfig currentConfig;
 
+    private final TicketingService ticketingService;
+
     // Load the configuration from the file at the start
     // Default configuration is used as null
-    public ConfigurationController() {
+    public ConfigurationController(TicketingService ticketingService) {
+        this.ticketingService = ticketingService;
         File configFile = new File(CONFIG_FILE);
         if (configFile.exists()) {
             try {
@@ -53,5 +58,15 @@ public class ConfigurationController {
         } catch (IOException e) {
             return "Failed to update configuration: " + e.getMessage();
         }
+    }
+
+    @PostMapping("/start")
+    public ResponseEntity<String> startSystem() {
+        if (currentConfig == null) {
+            return ResponseEntity.badRequest()
+                    .body("Configuration not set");
+        }
+        ticketingService.startSystem(currentConfig);
+        return ResponseEntity.ok("System started successfully");
     }
 }
