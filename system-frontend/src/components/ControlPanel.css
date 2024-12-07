@@ -1,0 +1,51 @@
+.control-panel {
+  width: 600px;
+  margin: 0 150px;
+  padding: 30px;
+  border: 1px solid var(--panel-border);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  text-align: center;
+}
+
+.control-panel h2 {
+  margin-bottom: 20px;
+  color: var(--text-color);
+  text-align: center;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.control-button {
+  width: 30%;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid var(--panel-border);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  color: black;
+  font-weight: bold;
+}
+
+.start-button {
+  background-color: #00ff3c;
+}
+
+.start-button:hover {
+  background-color: #53fc77;
+}
+
+.stop-button {
+  background-color: #ff2036;
+}
+
+.stop-button:hover {
+  background-color: #ff485a;
+}
