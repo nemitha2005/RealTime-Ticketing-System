@@ -11,7 +11,7 @@ import java.io.File;
 import java.io.IOException;
 
 @RestController
-@RequestMapping("/api/config")
+@RequestMapping("/api")
 public class ConfigurationController {
 
     // File path to store the configuration
@@ -21,12 +21,12 @@ public class ConfigurationController {
     private final ObjectMapper objectMapper = new ObjectMapper();
 
     // Stores the current configuration
-    private TicketingConfig currentConfig;
-
     private final TicketingService ticketingService;
 
     // Load the configuration from the file at the start
-    // Default configuration is used as null
+    private TicketingConfig currentConfig;
+
+    //
     public ConfigurationController(TicketingService ticketingService) {
         this.ticketingService = ticketingService;
         File configFile = new File(CONFIG_FILE);
@@ -43,20 +43,21 @@ public class ConfigurationController {
     }
 
     // Endpoint to get the current configuration
-    @GetMapping
+    @GetMapping("/config")
     public TicketingConfig getConfig() {
         return currentConfig;
     }
 
     // Endpoint to update the configuration and save it to the file
-    @PostMapping
-    public String updateConfig(@Valid @RequestBody TicketingConfig config) {
+    @PostMapping("/config")
+    public ResponseEntity<String> updateConfig(@Valid @RequestBody TicketingConfig config) {
         currentConfig = config; // Update configuration if valid only
         try {
             objectMapper.writeValue(new File(CONFIG_FILE), currentConfig);
-            return "Configuration updated successfully";
+            return ResponseEntity.ok("Configuration updated successfully");
         } catch (IOException e) {
-            return "Failed to update configuration: " + e.getMessage();
+            return ResponseEntity.internalServerError()
+                    .body("Failed to update configuration: " + e.getMessage());
         }
     }
 

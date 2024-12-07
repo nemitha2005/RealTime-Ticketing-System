@@ -24,7 +24,7 @@ public class Customer implements Runnable {
         while (isRunning && !ticketPool.isComplete()) {
             try {
                 // Attempt to buy tickets
-                List<Integer> tickets = ticketPool.removeTickets(customerId);
+                List<TicketPool.VendorTicket> tickets = ticketPool.removeTickets(customerId);
                 if (tickets.isEmpty()) break;
 
                 // Control retrieval rate
