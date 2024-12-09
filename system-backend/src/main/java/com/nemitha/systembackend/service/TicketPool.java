@@ -14,11 +14,9 @@ public class TicketPool {
     // Custom Ticket class to track vendor information
     public static class VendorTicket {
         private final int ticketNumber;
-        private final int vendorId;
 
-        public VendorTicket(int ticketNumber, int vendorId) {
+        public VendorTicket(int ticketNumber) {
             this.ticketNumber = ticketNumber;
-            this.vendorId = vendorId;
         }
 
         @Override
@@ -55,7 +53,7 @@ public class TicketPool {
         if (totalTicketsProduced.get() < totalTickets) {
             // Create a new ticket with vendor tracking
             int newTicketNumber = totalTicketsProduced.incrementAndGet();
-            VendorTicket newTicket = new VendorTicket(newTicketNumber, vendorId);
+            VendorTicket newTicket = new VendorTicket(newTicketNumber);
 
             tickets.add(newTicket);
 

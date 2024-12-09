@@ -30,10 +30,11 @@ public class TicketingService {
     // Start the ticketing system
     public synchronized void startSystem(TicketingConfig config) {
         // Prevent multiple starts
+        /*
         if (isRunning) {
             logger.warn("System is already running");
             return;
-        }
+        }*/
 
         // Initialize components
         ticketPool = new TicketPool(config.getMaxTicketCapacity(), config.getTotalTickets());
@@ -56,8 +57,8 @@ public class TicketingService {
         }
 
         isRunning = true;
-        logger.info("Ticketing system started with {} vendors and {} customers",
-                NUM_VENDORS, NUM_CUSTOMERS);
+
+        //logger.info("Ticketing system started with {} vendors and {} customers", NUM_VENDORS, NUM_CUSTOMERS);
     }
 
     // Stop the ticketing system
