@@ -1,5 +1,6 @@
 package com.nemitha.systembackend.service;
 
+import com.nemitha.systembackend.FrontendService.LogStreamingController;
 import com.nemitha.systembackend.config.TicketingConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,6 +28,13 @@ public class TicketingService {
     private ExecutorService executorService;
     private boolean isRunning = false;
 
+    // Injected dependency
+    private final LogStreamingController logStreamingController;
+
+    public TicketingService(LogStreamingController logStreamingController) {
+        this.logStreamingController = logStreamingController;
+    }
+
     // Start the ticketing system
     public synchronized void startSystem(TicketingConfig config) {
         // Prevent multiple starts
@@ -37,21 +45,21 @@ public class TicketingService {
         }*/
 
         // Initialize components
-        ticketPool = new TicketPool(config.getMaxTicketCapacity(), config.getTotalTickets());
+        ticketPool = new TicketPool(config.getMaxTicketCapacity(), config.getTotalTickets(), logStreamingController);
         vendors = new ArrayList<>();
         customers = new ArrayList<>();
         executorService = Executors.newFixedThreadPool(NUM_VENDORS + NUM_CUSTOMERS);
 
         // Start vendor threads
         for (int i = 1; i <= NUM_VENDORS; i++) {
-            Vendor vendor = new Vendor(ticketPool, i, config.getTicketReleaseRate());
+            Vendor vendor = new Vendor(ticketPool, i,  config.getTicketReleaseRate(), logStreamingController);
             vendors.add(vendor);
             executorService.submit(vendor);
         }
 
         // Start customer threads
         for (int i = 1; i <= NUM_CUSTOMERS; i++) {
-            Customer customer = new Customer(ticketPool, i, config.getCustomerRetrievalRate());
+            Customer customer = new Customer(ticketPool, logStreamingController, i, config.getCustomerRetrievalRate());
             customers.add(customer);
             executorService.submit(customer);
         }
@@ -86,6 +94,8 @@ public class TicketingService {
 
         isRunning = false;
         logger.info("Ticketing system stopped");
+        logStreamingController.broadcastLog("Ticketing system stopped");
+
     }
 
     // Check system status
