@@ -5,7 +5,7 @@ import { GoDotFill } from "react-icons/go"; // Import GoDotFill
 import axios from "axios";
 
 const container = (delay) => ({
-  hidden: { x: -100, opacity: 0 },
+  hidden: { x: 100, opacity: 0 },
   visible: {
     x: 0,
     opacity: 1,
@@ -43,8 +43,8 @@ const ControlPanel = () => {
     };
 
     fetchStatus();
-    const interval = setInterval(fetchStatus, 5000); // Adjusted polling interval
-    return () => clearInterval(interval); // Cleanup
+    const interval = setInterval(fetchStatus, 5000);
+    return () => clearInterval(interval);
   }, []);
 
   const showNotification = (message, type) => {
