@@ -1,17 +1,11 @@
 .control-panel {
   width: 600px;
-  margin: 0 150px;
+  margin: 0 auto 5px;
   padding: 30px;
   border: 1px solid var(--panel-border);
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   background-color: var(--background-color);
-  color: var(--text-color);
-  text-align: center;
-}
-
-.control-panel h2 {
-  margin-bottom: 20px;
   color: var(--text-color);
   text-align: center;
 }
@@ -48,4 +42,70 @@
 
 .stop-button:hover {
   background-color: #ff485a;
+}
+
+.notification-banner {
+  position: fixed;
+  top: 120px;
+  right: 20px;
+  min-width: 300px;
+  max-width: 400px;
+  background: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  overflow: hidden;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  opacity: 0;
+  transform: translateY(-30px);
+  animation: slideIn 0.5s forwards;
+}
+
+.notification-banner.success {
+  border-left: 4px solid #28a745;
+}
+
+.notification-banner.error {
+  border-left: 4px solid #dc3545;
+}
+
+.notification-content {
+  flex-grow: 1;
+  color: #333;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  color: #999;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 4px;
+  transition: color 0.2s;
+}
+
+.close-button:hover {
+  color: #666;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.status {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
 }

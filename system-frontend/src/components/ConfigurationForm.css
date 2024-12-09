@@ -1,7 +1,7 @@
 .form-container {
   max-width: 600px;
   align-items: center;
-  margin: 0 150px 20px;
+  margin: 0 auto 5px;
   padding: 30px;
   border: 1px solid var(--panel-border);
   border-radius: 8px;
@@ -62,4 +62,18 @@
 .update-button:hover,
 .get-button:hover {
   background-color: var(--button-hover-background);
+}
+
+.error-message {
+  color: red;
+  font-size: 11px;
+  margin-top: 5px;
+  text-align: center;
+}
+
+.success-message {
+  color: green;
+  font-size: 11px;
+  margin-top: 5px;
+  text-align: center;
 }
