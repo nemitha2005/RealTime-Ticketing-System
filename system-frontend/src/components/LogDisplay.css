@@ -44,3 +44,35 @@
 .log-list li:nth-child(odd) {
     background-color: #f0f8ff;
 }
+
+@media (max-width: 768px) {
+    .log-display {
+        padding: 20px; 
+    }
+
+    .log-container {
+        max-height: 250px; 
+        padding: 8px; 
+    }
+
+    .log-list li {
+        font-size: 0.85rem; 
+        padding: 8px; 
+    }
+}
+
+@media (max-width: 480px) {
+    .log-display {
+        max-width: 90%; 
+        padding: 15px; 
+    }
+
+    .log-container {
+        max-height: 200px; 
+    }
+
+    .log-list li {
+        font-size: 0.8rem; 
+        padding: 6px; 
+    }
+}

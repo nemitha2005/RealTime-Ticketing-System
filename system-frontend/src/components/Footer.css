@@ -1,0 +1,35 @@
+.footer {
+  background-color: var(--header-background);
+  color: var(--text-color);
+  padding: 10px;
+  text-align: center;
+  border-top: 1px solid var(--header-border);
+  margin-top: 50px;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 15px;
+  }
+
+  .footer-container {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 15px;
+  }
+
+  .footer-container {
+    font-size: 0.8rem;
+    padding: 0 10px;
+  }
+}

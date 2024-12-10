@@ -70,33 +70,51 @@
   background-color: var(--hover-background);
 }
 
-.light .header {
-  background-color: white;
-  color: black;
+@media (max-width: 768px) {
+  .header-container {
+    flex-wrap: wrap; 
+    padding: 0 15px;
+  }
+
+  .header-icon {
+    margin-right: 15px; 
+  }
+
+  .header-title {
+    font-size: 20px; 
+    margin-bottom: 10px;
+  }
+
+  .theme-toggle-button {
+    font-size: 30px; 
+  }
 }
 
-.light .theme-dropdown {
-  background-color: white;
-  color: black;
-}
+@media (max-width: 480px) {
+  .header-container {
+    flex-direction: column; 
+    align-items: flex-start; 
+  }
 
-.dark .header {
-  background-color: black;
-  color: white;
-}
+  .header-left {
+    width: 100%; 
+    justify-content: center;
+    text-align: center;
+  }
 
-.dark .theme-dropdown {
-  background-color: black;
-  color: white;
-}
+  .header-title {
+    font-size: 18px; 
+    margin: 5px 0;
+  }
 
-.system .header {
-  background-color: var(--header-background);
-  color: var(--text-color);
-}
+  .header-right {
+    width: 100%; 
+    text-align: center;
+  }
 
-.system .theme-dropdown {
-  background-color: var(--header-background);
-  color: var(--text-color);
+  .theme-dropdown {
+    right: auto; 
+    left: 50%; 
+    transform: translateX(-50%); 
+  }
 }
-
