@@ -75,6 +75,41 @@ git clone https://github.com/nemitha2005/RealTime-Ticketing-System.git
 
 4. The backend server will start running at `http://localhost:8080`.
 
+### Step 3: Frontend Setup (React)
+1. Navigate to the **system-frontend** folder:
+   ```bash
+   cd system-frontend
 
+2. Install dependencies:
+   ```bash
+   npm install
 
+3. Run the React application:
+   ```bash
+   npm start
 
+4. The frontend server will start running at `http://localhost:3000` and connect to the backend server.
+
+## Program Workflow
+
+### Backend (Spring Boot):
+- The Spring Boot backend manages the ticket pool, vendors, and customers.
+- It provides REST APIs for communication with the frontend.
+
+### Frontend (React):
+- The React UI allows users to configure the ticket simulation system.
+- Key functionalities include:
+  - Setting the number of tickets, release rates, retrieval rates, and pool capacity.
+  - Starting and stopping the simulation.
+  - Viewing real-time logs for system operations.
+
+---
+
+## System UI
+
+The system UI provides the following features:
+- A control panel for configuring and starting the simulation.
+- Logs displaying real-time ticket operations (e.g., tickets being added or retrieved).
+- A responsive design for seamless user interaction.
+
+### You can test the live hosted version of the application [here](https://test-frontend-rose.vercel.app/) without running it locally.
