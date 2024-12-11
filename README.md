@@ -37,13 +37,12 @@ Ensure you have the following installed:
    - **Option 3**: Exit the program.
 
   
-# Full-Stack Ticket Simulation System 
-
-[![System UI](https://i.postimg.cc/2jwzGMVW/Screenshot-2024-12-12-010649.png)](https://postimg.cc/bdZcN60Y)
-
+# Full-Stack Ticket Simulation System (React + Springboot)
 ## Overview
 
 This is a **full-stack ticket simulation system** developed using **React** for the frontend and **Spring Boot** for the backend. The system demonstrates real-time ticket management simulation with multithreading and synchronization.
+
+[![System UI](https://i.postimg.cc/2jwzGMVW/Screenshot-2024-12-12-010649.png)](https://postimg.cc/bdZcN60Y)
 
 ---
 
