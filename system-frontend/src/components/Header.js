@@ -1,4 +1,4 @@
-import React, { useContext, useState} from "react";
+import React, { useContext, useState } from "react";
 import { IoTicket } from "react-icons/io5";
 import { MdOutlineLightMode } from "react-icons/md";
 import { ThemeContext } from "../ThemeContext";
@@ -7,7 +7,6 @@ import "./Header.css";
 const Header = () => {
   const { theme, setTheme } = useContext(ThemeContext);
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  
 
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
@@ -25,7 +24,7 @@ const Header = () => {
           <IoTicket size={35} className="header-icon" />
           <p className="header-title">Ticket Simulation Control Panel</p>
         </div>
-  
+
         <div className="header-right">
           <button className="theme-toggle-button" onClick={toggleDropdown}>
             <MdOutlineLightMode size={35} />

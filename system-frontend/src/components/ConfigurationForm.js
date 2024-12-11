@@ -65,10 +65,11 @@ const ConfigurationForm = () => {
     try {
       const response = await axios.get("http://localhost:8080/api/config");
       const config = response.data;
-      setMessage({
-        type: "success",
-        text: `Current Configuration: ${JSON.stringify(config)}`,
-      });
+      const configString = Object.entries(config)
+        .map(([key, value]) => `${key}: ${value}`)
+        .join("\n");
+
+      alert(`Current Configuration:\n${configString}`);
     } catch (error) {
       const errorText =
         error.response?.data || "Failed to fetch configuration.";

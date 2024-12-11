@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./ControlPanel.css";
 import { motion } from "framer-motion";
-import { GoDotFill } from "react-icons/go"; // Import GoDotFill
+import { GoDotFill } from "react-icons/go";
 import axios from "axios";
 
 const container = (delay) => ({
@@ -13,7 +13,7 @@ const container = (delay) => ({
   },
 });
 
-const NotificationBanner = ({ message, type, onClose }) => {
+const NotificationBanner = ({ message, type }) => {
   return (
     <div className={`notification-banner ${type}`}>
       <div className="notification-content">
@@ -43,7 +43,7 @@ const ControlPanel = () => {
     };
 
     fetchStatus();
-    const interval = setInterval(fetchStatus, 5000);
+    const interval = setInterval(fetchStatus, 1000);
     return () => clearInterval(interval);
   }, []);
 
@@ -86,10 +86,10 @@ const ControlPanel = () => {
       className="control-panel"
     >
       <div className="status">
-      <GoDotFill style={{ color: status.color }} size={16} />
-      <span className="status-label" style={{ color: status.color }}>
-        {status.text}
-      </span>
+        <GoDotFill style={{ color: status.color }} size={16} />
+        <span className="status-label" style={{ color: status.color }}>
+          {status.text}
+        </span>
       </div>
       <div className="button-group">
         <button className="control-button start-button" onClick={handleStart}>

@@ -7,6 +7,8 @@ import javax.annotation.PostConstruct;
 
 @Slf4j
 @Component
+
+// Broadcast logs to clients
 public class LogBroadcaster {
 
     private final LogStreamingController logStreamingController;

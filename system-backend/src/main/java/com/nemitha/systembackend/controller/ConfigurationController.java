@@ -15,6 +15,7 @@ import java.io.IOException;
 @RestController
 @RequestMapping("/api")
 public class ConfigurationController {
+
     private static final Logger logger = LoggerFactory.getLogger(ConfigurationController.class);
     private static final String CONFIG_FILE = "src/main/resources/config.json";
     private final ObjectMapper objectMapper = new ObjectMapper();

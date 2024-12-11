@@ -18,7 +18,7 @@
 }
 
 .control-button {
-  flex: 1 1 calc(30% - 20px); 
+  flex: 1 1 calc(30% - 20px);
   padding: 12px;
   font-size: 16px;
   border: 1px solid var(--panel-border);
@@ -114,7 +114,7 @@
 
 @media (max-width: 768px) {
   .control-panel {
-    padding: 20px; 
+    padding: 20px;
   }
 
   .control-button {
@@ -124,24 +124,24 @@
   }
 
   .notification-banner {
-    right: 10px; 
-    max-width: 90%; 
+    right: 10px;
+    max-width: 90%;
   }
 
   .notification-content {
-    font-size: 12px; 
+    font-size: 12px;
   }
 }
 
 @media (max-width: 480px) {
   .control-panel {
-    width: 100%; 
+    width: 100%;
     padding: 15px;
   }
 
   .control-button {
-    flex: 1 1 100%; 
-    font-size: 14px; 
+    flex: 1 1 100%;
+    font-size: 14px;
     padding: 10px;
   }
 
@@ -150,8 +150,8 @@
   }
 
   .notification-banner {
-    right: 5px; 
-    top: 10px; 
-    width: 90%; 
+    right: 5px;
+    top: 10px;
+    width: 90%;
   }
 }

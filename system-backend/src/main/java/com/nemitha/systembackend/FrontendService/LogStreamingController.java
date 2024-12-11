@@ -17,6 +17,7 @@ public class LogStreamingController {
 
     private final List<SseEmitter> emitters = new CopyOnWriteArrayList<>();
 
+    // Stream logs to clients
     @GetMapping("/stream")
     public SseEmitter streamLogs() {
         SseEmitter emitter = new SseEmitter(Long.MAX_VALUE);
