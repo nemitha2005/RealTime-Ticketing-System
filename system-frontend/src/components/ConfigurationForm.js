@@ -93,7 +93,7 @@ const ConfigurationForm = () => {
             id="totalTickets"
             value={formData.totalTickets}
             onChange={handleInputChange}
-            placeholder="Enter a value"
+            placeholder="Enter a Number"
           />
         </div>
 
